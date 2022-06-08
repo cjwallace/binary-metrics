@@ -1,19 +1,20 @@
 <script lang="ts">
+	import { data } from '../stores';
 	import { LayerCake, Svg } from 'layercake';
 	import { range, scaleLinear } from 'd3';
 
-	import data from '$lib/data.js';
+	import defaultData from '$lib/data';
 	import metrics from '$lib/metrics';
-	import type { Threshold } from '$lib/metrics.js';
+	import type { Threshold } from '$lib/metrics';
 
 	import AxisX from '$lib/components/AxisX.svelte';
 	import AxisY from '$lib/components/AxisY.svelte';
 	import Bar from '$lib/components/Bar.svelte';
 	import Circle from '$lib/components/Circle.svelte';
 	import Line from '$lib/components/Line.svelte';
+	import FileInput from '$lib/components/FileInput.svelte';
 
 	const thresholds: Threshold[] = Array.from(Array(100).keys()).map((el) => el / 100);
-	const metrices = thresholds.map((thresh) => metrics(data, thresh));
 
 	const xScale = scaleLinear().domain([0, 1]).range([5, 95]);
 	const yScale = scaleLinear().domain([0, 1]).range([95, 5]);
@@ -21,10 +22,15 @@
 	const ticks = range(0, 1.1, 0.1);
 
 	let currentThreshold = 0.5;
-	$: currentMetrics = metrics(data, currentThreshold);
+	$: metrices = thresholds.map((thresh) => metrics($data, thresh));
+	$: currentMetrics = metrics($data, currentThreshold);
 </script>
 
-<div class="w-[400px] h-[400px] my-48 m-auto">
+<div class="w-[400px] my-12 m-auto block">
+	<FileInput />
+</div>
+
+<div class="w-[400px] h-[400px] mb-48 mt-12 m-auto">
 	<label for="threshold" class="font-mono uppercase">threshold: </label>
 	<p class="font-mono inline">{currentThreshold.toFixed(2)}</p>
 	<input
@@ -42,7 +48,6 @@
 			<AxisY {ticks} />
 			<Line />
 			<Circle circleX={currentMetrics.recall} circleY={currentMetrics.precision} />
-			/>
 			<text class="font-mono text-sm uppercase text-[#1f2937] font-semibold" x="0" y="-10"
 				>precision</text
 			>

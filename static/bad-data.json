@@ -1,0 +1,5 @@
+[
+	{ "probability": 0, "label": 2 },
+	{ "probability": 0.01, "label": 0 },
+	{ "probability": 0.02, "label": 1 }
+]
