@@ -13,7 +13,7 @@
 	let files: FileList;
 	let error = '';
 
-	async function parseFile(file: File) {
+	function parseFile(file: File) {
 		file
 			.text()
 			.then((f) => JSON.parse(f))
@@ -45,10 +45,10 @@
 	bind:files
 	type="file"
 	name="file-input"
-	class="w-full block text-sm rounde-sm border border-[#1f2937] text-[#1f2937] font-mono form-input file:mr-4"
+	class="w-full block text-sm rounde-sm border border-[#1f2937] text-[#1f2937] bg-inherit font-mono form-input file:mr-4"
 />
 {#if error}
-	<p class="font-mono w-100 m-2 text-red-800 ">{error}</p>
+	<p class="font-mono w-100 m-2 text-[#cc6b49]">{error}</p>
 {:else if !files}
 	<p class="font-mono w-100 m-2">Visualizing random data.</p>
 {:else}
