@@ -45,14 +45,14 @@
 	bind:files
 	type="file"
 	name="file-input"
-	class="w-full block text-sm rounde-sm border border-[#1f2937] text-[#1f2937] bg-inherit font-mono form-input file:mr-4"
+	class="w-full block text-sm rounde-sm border border-dark text-dark bg-inherit font-mono form-input file:mr-4"
 />
 {#if error}
-	<p class="font-mono w-100 mt-4 mb-8 text-sm text-[#cc6b49]">&#x2551; {error}</p>
+	<p class="font-mono w-100 mt-4 mb-8 text-sm text-vintage-red">&#x2551; {error}</p>
 {:else if !files}
 	<p class="font-mono w-100 mt-4 mb-8 text-sm">&#x2551; Visualizing random data.</p>
 {:else}
-	<p class="font-mono w-100 mt-4 mb-8 text-sm text-[#74bda8]">
+	<p class="font-mono w-100 mt-4 mb-8 text-sm text-vintage-aqua">
 		&#x2551; Visualizing metrics below.
 	</p>
 {/if}

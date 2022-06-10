@@ -17,7 +17,12 @@
 	const thresholds: Threshold[] = Array.from(Array(101).keys()).map((el) => el / 100);
 	const ticks = range(0, 1.1, 0.1);
 
-	const colors = ['#74bda8', '#cc6b49', '#d2a24c', '#6f5643'];
+	const fillColors = [
+		'fill-vintage-aqua',
+		'fill-vintage-red',
+		'fill-vintage-yellow',
+		'fill-vintage-brown'
+	];
 
 	const chartMargin = 40;
 	const barMargin = 40;
@@ -53,12 +58,12 @@
 				<AxisY {ticks} />
 				<Line />
 				<Circle circleX={currentMetrics.recall} circleY={currentMetrics.precision} />
-				<text class="font-mono text-xs uppercase fill-[#1f2937] font-semibold" x="5" y="10"
+				<text class="font-mono text-xs uppercase fill-dark font-semibold" x="5" y="10"
 					>precision</text
 				>
 				<text
-					class="font-mono text-xs uppercase fill-[#1f2937] font-semibold"
-					x={containerWidth - 80}
+					class="font-mono text-xs uppercase fill-dark font-semibold"
+					x={containerWidth - barMargin}
 					y={containerHeight}>recall</text
 				>
 			</Svg>
@@ -69,7 +74,7 @@
 		<LayerCake data={currentMetrics} xDomain={[0, 1]} xRange={barXRange}>
 			{#each Object.entries(currentMetrics) as m, i}
 				<Svg>
-					<Bar y={i * 50} value={m[1]} color={colors[i]} label={m[0]} />
+					<Bar y={i * 50} value={m[1]} color={fillColors[i]} label={m[0]} />
 				</Svg>
 			{/each}
 		</LayerCake>
@@ -78,7 +83,6 @@
 
 <style>
 	:global(body) {
-		/* background-color: #ece6c2; */
 		background-color: papayawhip;
 	}
 </style>

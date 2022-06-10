@@ -11,7 +11,7 @@
 	max="1.00"
 	step="0.01"
 	name="threshold"
-	class="block mb-16 mt-4 h-1 form-range w-full bg-[#1f2937] cursor-pointer appearance-none"
+	class="block mb-16 mt-4 h-1 form-range w-full bg-dark cursor-pointer appearance-none"
 />
 
 <style>

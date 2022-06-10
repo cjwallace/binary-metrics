@@ -9,4 +9,4 @@
 	$: cy = $yScale(circleY);
 </script>
 
-<circle {cx} {cy} r="4" class="fill-[#cc6b49]" />
+<circle {cx} {cy} r="4" class="fill-vintage-red" />
