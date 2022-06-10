@@ -20,8 +20,8 @@
 	const colors = ['#74bda8', '#cc6b49', '#d2a24c', '#6f5643'];
 
 	const chartMargin = 40;
-	const barMargin = 80;
-	const chartXRange = ({ width }: { width: number }) => [chartMargin, width - chartMargin];
+	const barMargin = 40;
+	const chartXRange = ({ width }: { width: number }) => [chartMargin, width - chartMargin / 2];
 	const chartYRange = ({ height }: { height: number }) => [height - chartMargin, chartMargin];
 	const barXRange = ({ width }: { width: number }) => [0, width - barMargin];
 
@@ -30,7 +30,7 @@
 	$: currentMetrics = metrics($data, currentThreshold);
 </script>
 
-<div class="max-w-md mt-10 m-auto p-4 block">
+<div class="max-w-md mt-10 m-auto p-4 block sm:border sm:border-black sm:rounded-sm">
 	<h1 class="text-lg font-mono font-bold mb-4">Binary Metrics</h1>
 	<p class="font-mono text-sm mb-4">// TODO: instructions</p>
 	<FileInput />

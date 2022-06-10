@@ -19,6 +19,6 @@
 	class="stroke-[#1f2937] stroke-2"
 />
 
-<text x={$xRange[1]} y={y + 5} dx="25" dy="16" class="font-mono text-sm text-[#1f2937]"
+<text x={$xRange[1]} y={y + 5} dx="15" dy="15" class="font-mono text-sm text-[#1f2937]"
 	>{value.toFixed(2)}</text
 >
