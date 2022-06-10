@@ -4,7 +4,6 @@
 	import { range } from 'd3';
 
 	import metrics from '$lib/metrics';
-	import type { Threshold } from '$lib/metrics';
 
 	import AxisX from '$lib/components/AxisX.svelte';
 	import AxisY from '$lib/components/AxisY.svelte';
@@ -14,7 +13,7 @@
 	import FileInput from '$lib/components/FileInput.svelte';
 	import ThresholdSlider from '$lib/components/ThresholdSlider.svelte';
 
-	const thresholds: Threshold[] = Array.from(Array(101).keys()).map((el) => el / 100);
+	const thresholds = Array.from(Array(101).keys()).map((el) => el / 100);
 	const ticks = range(0, 1.1, 0.1);
 
 	const fillColors = [
