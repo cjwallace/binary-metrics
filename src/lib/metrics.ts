@@ -36,7 +36,7 @@ const metrics = (predictions: Prediction[], threshold: Threshold): Metrics => {
 	const f1 = (2 * (precision * recall)) / (precision + recall);
 
 	if (threshold === 0) {
-		return { precision: 0.0, recall: 1.0, accuracy, f1 };
+		return { precision, recall: 1.0, accuracy, f1 };
 	} else if (threshold === 1 || tp + fp === 0) {
 		return { precision: 1.0, recall: 0.0, accuracy, f1: 0.0 };
 	}
