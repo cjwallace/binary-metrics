@@ -11,6 +11,8 @@
 	import Circle from '$lib/components/Circle.svelte';
 	import Line from '$lib/components/Line.svelte';
 	import FileInput from '$lib/components/FileInput.svelte';
+	import Instructions from '$lib/components/Instructions.svelte';
+	import InstructionToggle from '$lib/components/InstructionToggle.svelte';
 	import ThresholdSlider from '$lib/components/ThresholdSlider.svelte';
 
 	const thresholds = Array.from(Array(101).keys()).map((el) => el / 100);
@@ -31,53 +33,60 @@
 
 	let currentThreshold = 0.5;
 
+	let instructionsOpen = false;
+
 	$: metrices = thresholds.map((thresh) => metrics($data, thresh));
 	$: currentMetrics = metrics($data, currentThreshold);
 </script>
 
 <div class="max-w-md my-10 m-auto p-4 block sm:border sm:border-black sm:rounded-sm">
 	<h1 class="text-lg font-mono font-bold mb-4">Binary Metrics</h1>
-	<FileInput />
+	<InstructionToggle bind:toggle={instructionsOpen} />
+	{#if instructionsOpen}
+		<Instructions />
+	{:else}
+		<FileInput />
 
-	<ThresholdSlider bind:threshold={currentThreshold} />
-	<div class="max-w-md w-full h-[250px] sm:h-[400px] mb-12 mt-12 m-auto">
-		<LayerCake
-			let:containerWidth
-			let:containerHeight
-			data={metrices}
-			x="recall"
-			y="precision"
-			xDomain={[0, 1]}
-			yDomain={[0, 1]}
-			xRange={chartXRange}
-			yRange={chartYRange}
-		>
-			<Svg>
-				<AxisX {ticks} />
-				<AxisY {ticks} />
-				<Line />
-				<Circle circleX={currentMetrics.recall} circleY={currentMetrics.precision} />
-				<text class="font-mono text-xs uppercase fill-dark font-semibold" x="5" y="10"
-					>precision</text
-				>
-				<text
-					class="font-mono text-xs uppercase fill-dark font-semibold"
-					x={containerWidth - barMargin}
-					y={containerHeight}>recall</text
-				>
-			</Svg>
-		</LayerCake>
-	</div>
-
-	<div class="max-w-md h-[200px] my-2 m-auto p-2 block">
-		<LayerCake data={currentMetrics} xDomain={[0, 1]} xRange={barXRange}>
-			{#each Object.entries(currentMetrics) as m, i}
+		<ThresholdSlider bind:threshold={currentThreshold} />
+		<div class="max-w-md w-full h-[250px] sm:h-[400px] mb-12 mt-12 m-auto">
+			<LayerCake
+				let:containerWidth
+				let:containerHeight
+				data={metrices}
+				x="recall"
+				y="precision"
+				xDomain={[0, 1]}
+				yDomain={[0, 1]}
+				xRange={chartXRange}
+				yRange={chartYRange}
+			>
 				<Svg>
-					<Bar y={i * 50} value={m[1]} color={fillColors[i]} label={m[0]} />
+					<AxisX {ticks} />
+					<AxisY {ticks} />
+					<Line />
+					<Circle circleX={currentMetrics.recall} circleY={currentMetrics.precision} />
+					<text class="font-mono text-xs uppercase fill-dark font-semibold" x="5" y="10"
+						>precision</text
+					>
+					<text
+						class="font-mono text-xs uppercase fill-dark font-semibold"
+						x={containerWidth - barMargin}
+						y={containerHeight}>recall</text
+					>
 				</Svg>
-			{/each}
-		</LayerCake>
-	</div>
+			</LayerCake>
+		</div>
+
+		<div class="max-w-md h-[200px] my-2 m-auto p-2 block">
+			<LayerCake data={currentMetrics} xDomain={[0, 1]} xRange={barXRange}>
+				{#each Object.entries(currentMetrics) as m, i}
+					<Svg>
+						<Bar y={i * 50} value={m[1]} color={fillColors[i]} label={m[0]} />
+					</Svg>
+				{/each}
+			</LayerCake>
+		</div>
+	{/if}
 </div>
 
 <style>
