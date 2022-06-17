@@ -14,7 +14,7 @@
 	class="block mb-16 mt-4 h-1 form-range w-full bg-dark cursor-pointer appearance-none"
 />
 
-<style>
+<style lang="postcss">
 	input[type='range'] {
 		-webkit-appearance: none;
 	}
@@ -24,6 +24,6 @@
 		height: 16px;
 		width: 16px;
 		border-radius: 50%;
-		background: #1f2937;
+		@apply bg-dark;
 	}
 </style>
