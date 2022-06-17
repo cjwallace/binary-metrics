@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { data } from '../../stores';
+	import { data } from '$lib/stores';
 	import { z } from 'zod';
 	import type { Prediction } from '$lib/metrics';
 
