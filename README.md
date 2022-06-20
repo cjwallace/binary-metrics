@@ -5,5 +5,5 @@ This is a svelte component for visualizing the metrics of a binary classifier _a
 Right now, the project is **unlicensed**. You're free to use it for learning and study, but not to build things with it. I'll get round to making it more consumable.
 
 <p align="center">
-  <img alt="A precision-recall curve and some horizontal bars depicting precision, recall, accuracy, and f1 score. There's a slider to control the classification threshold. Changing the threshold updates the curve and metrics." src="static/binary-metrics.gif" />
+  <img alt="A precision-recall curve and some horizontal bars depicting precision, recall, accuracy, and f1 score. There's a slider to control the classification threshold. Changing the threshold updates the curve and metrics." src="https://raw.githubusercontent.com/cjwallace/binary-metrics/main/static/binary-metrics.gif" />
 </p>
