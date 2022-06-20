@@ -1,14 +1,7 @@
 <script lang="ts">
-	import { data } from '$lib/stores';
 	import { z } from 'zod';
-	import type { Prediction } from '$lib/metrics';
-
-	const PredictionParser = z.object({
-		probability: z.number().gte(0).lte(1), // must be between 0 and 1 (inclusive)
-		label: z.literal(0).or(z.literal(1)) // must be exactly 0 or 1
-	});
-
-	const PredictionArrayParser = z.array(PredictionParser);
+	import { PredictionArrayParser } from '$lib/data';
+	import { data } from '$lib/stores';
 
 	let files: FileList;
 	let error = '';
@@ -50,7 +43,7 @@
 {#if error}
 	<p class="font-mono w-100 mt-4 mb-8 text-sm text-vintage-red">&#x2551; {error}</p>
 {:else if !files}
-	<p class="font-mono w-100 mt-4 mb-8 text-sm">&#x2551; Visualizing random data.</p>
+	<p class="font-mono w-100 mt-4 mb-8 text-sm text-dark">&#x2551; Visualizing random data.</p>
 {:else}
 	<p class="font-mono w-100 mt-4 mb-8 text-sm text-vintage-aqua">
 		&#x2551; Visualizing metrics below.

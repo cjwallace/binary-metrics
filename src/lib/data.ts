@@ -1,8 +1,13 @@
-import type { Label, Prediction } from './metrics';
+import data from '$lib/predictions.json';
+import { z } from 'zod';
 
-const predictions = Array.from(Array(10000).keys()).map((el) => el / 10000);
-const labels: Label[] = Array.from(Array(10000).keys()).map(() => (Math.random() > 0.6 ? 1 : 0));
+const PredictionParser = z.object({
+	probability: z.number().gte(0).lte(1), // must be between 0 and 1 (inclusive)
+	label: z.literal(0).or(z.literal(1)) // must be exactly 0 or 1
+});
 
-const defaultData: Prediction[] = predictions.map((p, i) => ({ probability: p, label: labels[i] }));
+export const PredictionArrayParser = z.array(PredictionParser);
+
+const defaultData = PredictionArrayParser.parse(data);
 
 export default defaultData;
