@@ -1,6 +1,6 @@
 {
 	"name": "@standard-dev/binary-metrics",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -23,7 +23,6 @@
 		"eslint": "^8.12.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"layercake": "^6.1.0",
 		"postcss": "^8.4.12",
 		"postcss-load-config": "^3.1.4",
 		"prettier": "^2.5.1",
@@ -38,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"d3": "^7.4.4",
+		"layercake": "^6.1.0",
 		"svelte2tsx": "^0.5.10",
 		"zod": "^3.17.3"
 	}
