@@ -1,4 +1,4 @@
-<div class="font-mono text-sm mx-5">
+<div class="font-mono text-dark text-sm mx-5">
 	<p>
 		Hi! This app will visualize the precision-recall curve, and separately the precision, recall,
 		accuracy, and f1-score of a binary classifier <span class="font-bold"
@@ -8,8 +8,8 @@
 	<p>
 		Everything runs in the browser, so all you need to do is upload a JSON with the right structure.
 		Unfortunately, that structure is extremely specific (because I didn't write more handling code
-		for it). Upload a `.json` file that is structured like this (for clarity, the _formatting_ does
-		not matter):
+		for it). Upload a `.json` file that is structured like this (for clarity, the <em>formatting</em
+		> does not matter):
 	</p>
 	<pre>
     <code>
@@ -36,7 +36,7 @@
 		By way of example, the script used to generate the example data that is preloaded in the app is <a
 			rel="external"
 			href="https://github.com/cjwallace/binary_metrics_data/blob/b6b2e0c8082a796df7dc7607716e6a447cf29096/fake_classification_data/generate.py"
-			>here</a
+			class="underline underline-offset-2">here</a
 		>.
 	</p>
 	<p class="font-bold py-2">Soft constraints:</p>
@@ -44,15 +44,14 @@
 		There's no hard limit on the number of entries in the JSON, except that imposed by the memory of
 		your web browser. However, at some point, it's gonna get real slow. The app is buttery smooth on
 		a 2020 MBP with 16GB RAM and a 2.6Ghz 6-Core Intel i7, up to a few thousand data points. Things
-		get squiffy but usable at at 100k-ish (corresponding to a ~3.5 MB JSON file). The app is more
-		proof of concept than battle-tested.
+		get squiffy but usable at at 100k-ish points (corresponding to a ~3.5 MB JSON file).
 	</p>
 	<p>
-		<span class="text-vintage-red font-bold">
+		<span class="text-vintage-aqua font-bold">
 			None of the data you upload here is logged anywhere.
 		</span>
-		Everything runs browser-side, it doesn't even hit a server. This is a small tool, I don't want your
-		data. The site uses privacy preserving analytics to count views, and that's all.
+		Everything runs browser-side. I don't want your data. The site uses privacy preserving analytics
+		to count views, and that's all.
 	</p>
 </div>
 
