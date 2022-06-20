@@ -21,7 +21,9 @@
 			<!-- tick marks -->
 			<line y1={0} y2={5} x1={0} x2={0} class="stroke-dark" stroke-width={2} />
 			<!-- tick labels -->
-			<text x={0} y={20} text-anchor="middle" class="font-mono text-xs">{t.toFixed(1)}</text>
+			<text x={0} y={20} text-anchor="middle" class="font-mono text-xs fill-dark"
+				>{t.toFixed(1)}</text
+			>
 		</g>
 	{/each}
 </g>

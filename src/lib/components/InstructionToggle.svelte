@@ -2,7 +2,7 @@
 	export let toggle: boolean;
 </script>
 
-<button on:click={() => (toggle = !toggle)} class="font-mono mb-2">
+<button on:click={() => (toggle = !toggle)} class="font-mono font-semibold text-dark mb-2">
 	{#if !toggle}
 		&rdsh; <span class="text-sm underline underline-offset-4">Instructions</span>
 	{:else}

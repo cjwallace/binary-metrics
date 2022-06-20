@@ -1,4 +1,4 @@
-<div class="font-mono text-dark text-sm mx-5">
+<div class="font-mono text-dark text-sm px-4">
 	<p>
 		Hi! This app will visualize the precision-recall curve, and separately the precision, recall,
 		accuracy, and f1-score of a binary classifier <span class="font-bold"

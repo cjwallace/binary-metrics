@@ -20,6 +20,6 @@
 	class="stroke-dark stroke-2"
 />
 
-<text x={$xRange[1]} y={y + 5} dx="15" dy="15" class="font-mono text-sm text-dark"
+<text x={$xRange[1]} y={y + 5} dx="15" dy="15" class="font-mono text-sm fill-dark"
 	>{value.toFixed(2)}</text
 >

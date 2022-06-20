@@ -39,7 +39,7 @@
 	$: currentMetrics = metrics($data, currentThreshold);
 </script>
 
-<div class="max-w-md my-10 m-auto p-4 block sm:border sm:border-black sm:rounded-sm">
+<div class="max-w-md my-10 m-auto p-4 block sm:border sm:border-dark sm:rounded-sm">
 	<h1 class="text-lg font-mono font-bold mb-4">Binary Metrics</h1>
 	<InstructionToggle bind:toggle={instructionsOpen} />
 	{#if instructionsOpen}
@@ -48,7 +48,7 @@
 		<FileInput />
 
 		<ThresholdSlider bind:threshold={currentThreshold} />
-		<div class="max-w-md w-full h-[250px] sm:h-[400px] mb-12 mt-12 m-auto">
+		<div class="max-w-md w-full h-[300px] sm:h-[400px] mb-12 mt-12 m-auto">
 			<LayerCake
 				let:containerWidth
 				let:containerHeight

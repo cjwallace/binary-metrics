@@ -2,8 +2,8 @@
 	export let threshold: number;
 </script>
 
-<label for="threshold" class="font-mono uppercase">threshold: </label>
-<p class="font-mono inline">{threshold.toFixed(2)}</p>
+<label for="threshold" class="font-mono text-dark uppercase">threshold: </label>
+<p class="font-mono text-dark inline">{threshold.toFixed(2)}</p>
 <input
 	bind:value={threshold}
 	type="range"
