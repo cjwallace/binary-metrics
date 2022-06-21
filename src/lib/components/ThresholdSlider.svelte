@@ -2,19 +2,23 @@
 	export let threshold: number;
 </script>
 
-<label for="threshold" class="font-mono text-dark uppercase">threshold: </label>
-<p class="font-mono text-dark inline">{threshold.toFixed(2)}</p>
-<input
-	bind:value={threshold}
-	type="range"
-	min="0.00"
-	max="1.00"
-	step="0.01"
-	name="threshold"
-	class="block mb-16 mt-4 h-1 form-range w-full bg-dark cursor-pointer appearance-none"
-/>
+<label for="threshold">threshold: </label>
+<p>{threshold.toFixed(2)}</p>
+<input bind:value={threshold} type="range" min="0.00" max="1.00" step="0.01" name="threshold" />
 
 <style lang="postcss">
+	label {
+		@apply font-mono text-dark uppercase;
+	}
+
+	p {
+		@apply font-mono text-dark inline;
+	}
+
+	input {
+		@apply block mb-16 mt-4 h-1 w-full bg-dark cursor-pointer appearance-none;
+	}
+
 	input[type='range'] {
 		-webkit-appearance: none;
 	}

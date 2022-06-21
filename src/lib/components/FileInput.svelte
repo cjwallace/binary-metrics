@@ -34,18 +34,29 @@
 	}
 </script>
 
-<input
-	bind:files
-	type="file"
-	name="file-input"
-	class="w-full block text-sm rounded-sm border border-dark text-dark bg-inherit font-mono form-input file:mr-4"
-/>
+<input bind:files type="file" name="file-input" />
 {#if error}
-	<p class="font-mono w-100 mt-4 mb-8 text-sm text-vintage-red">&#x2551; {error}</p>
+	<p class="error">&#x2551; {error}</p>
 {:else if !files}
-	<p class="font-mono w-100 mt-4 mb-8 text-sm text-dark">&#x2551; Visualizing random data.</p>
+	<p class="neutral">&#x2551; Visualizing random data.</p>
 {:else}
-	<p class="font-mono w-100 mt-4 mb-8 text-sm text-vintage-aqua">
-		&#x2551; Visualizing metrics below.
-	</p>
+	<p class="success ">&#x2551; Visualizing metrics below.</p>
 {/if}
+
+<style lang="postcss">
+	input {
+		@apply w-full block text-sm rounded-sm border border-dark text-dark bg-inherit font-mono form-input file:mr-4;
+	}
+
+	p.error {
+		@apply font-mono mt-4 mb-8 text-sm text-vintage-red;
+	}
+
+	p.neutral {
+		@apply font-mono mt-4 mb-8 text-sm text-dark;
+	}
+
+	p.success {
+		@apply font-mono mt-4 mb-8 text-sm text-vintage-aqua;
+	}
+</style>

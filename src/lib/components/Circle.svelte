@@ -9,4 +9,10 @@
 	$: cy = $yScale(circleY);
 </script>
 
-<circle {cx} {cy} r="4" class="fill-vintage-red" />
+<circle {cx} {cy} r="4" />
+
+<style lang="postcss">
+	circle {
+		@apply fill-vintage-red;
+	}
+</style>

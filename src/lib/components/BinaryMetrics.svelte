@@ -18,12 +18,7 @@
 	const thresholds = Array.from(Array(101).keys()).map((el) => el / 100);
 	const ticks = range(0, 1.1, 0.1);
 
-	const fillColors = [
-		'fill-vintage-aqua',
-		'fill-vintage-red',
-		'fill-vintage-yellow',
-		'fill-vintage-brown'
-	];
+	const fillColors = ['aqua', 'red', 'yellow', 'brown'];
 
 	const chartMargin = 40;
 	const barMargin = 40;
@@ -39,8 +34,8 @@
 	$: currentMetrics = metrics($data, currentThreshold);
 </script>
 
-<div class="max-w-md my-10 m-auto p-4 block sm:border sm:border-dark sm:rounded-sm">
-	<h1 class="text-lg font-mono font-bold mb-4">Binary Metrics</h1>
+<div class="app">
+	<h1>Binary Metrics</h1>
 	<InstructionToggle bind:toggle={instructionsOpen} />
 	{#if instructionsOpen}
 		<Instructions />
@@ -48,7 +43,7 @@
 		<FileInput />
 
 		<ThresholdSlider bind:threshold={currentThreshold} />
-		<div class="max-w-md w-full h-[300px] sm:h-[400px] mb-12 mt-12 m-auto">
+		<div class="chart">
 			<LayerCake
 				let:containerWidth
 				let:containerHeight
@@ -65,19 +60,13 @@
 					<AxisY {ticks} />
 					<Line />
 					<Circle circleX={currentMetrics.recall} circleY={currentMetrics.precision} />
-					<text class="font-mono text-xs uppercase fill-dark font-semibold" x="5" y="10"
-						>precision</text
-					>
-					<text
-						class="font-mono text-xs uppercase fill-dark font-semibold"
-						x={containerWidth - barMargin}
-						y={containerHeight}>recall</text
-					>
+					<text class="axis-label" x="5" y="10">precision</text>
+					<text class="axis-label" x={containerWidth - barMargin} y={containerHeight}>recall</text>
 				</Svg>
 			</LayerCake>
 		</div>
 
-		<div class="max-w-md h-[200px] my-2 m-auto p-2 block">
+		<div class="bars">
 			<LayerCake data={currentMetrics} xDomain={[0, 1]} xRange={barXRange}>
 				{#each Object.entries(currentMetrics) as m, i}
 					<Svg>
@@ -89,8 +78,24 @@
 	{/if}
 </div>
 
-<style>
-	:global(body) {
-		background-color: papayawhip;
+<style lang="postcss">
+	h1 {
+		@apply text-lg font-mono font-bold mb-4;
+	}
+
+	div.app {
+		@apply max-w-md my-10 m-auto p-4 block sm:border sm:border-dark sm:rounded-sm;
+	}
+
+	div.chart {
+		@apply max-w-md w-full h-[300px] sm:h-[400px] mb-12 mt-12 m-auto;
+	}
+
+	div.bars {
+		@apply max-w-md h-[200px] my-2 m-auto p-2 block;
+	}
+
+	text.axis-label {
+		@apply font-mono text-xs uppercase fill-dark font-semibold;
 	}
 </style>

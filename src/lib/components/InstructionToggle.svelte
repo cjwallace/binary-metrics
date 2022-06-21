@@ -2,10 +2,20 @@
 	export let toggle: boolean;
 </script>
 
-<button on:click={() => (toggle = !toggle)} class="font-mono font-semibold text-dark mb-2">
+<button on:click={() => (toggle = !toggle)}>
 	{#if !toggle}
-		&rdsh; <span class="text-sm underline underline-offset-4">Instructions</span>
+		&rdsh; <span>Instructions</span>
 	{:else}
-		&lsh; <span class="text-sm underline underline-offset-4">Back to app</span>
+		&lsh; <span>Back to app</span>
 	{/if}
 </button>
+
+<style lang="postcss">
+	button {
+		@apply font-mono font-semibold text-dark mb-2;
+	}
+
+	span {
+		@apply text-sm underline underline-offset-4;
+	}
+</style>
